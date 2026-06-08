@@ -1,0 +1,73 @@
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+
+# 1. DATA GENERATION (Simulating a Customer Dataset)
+data = {
+    'Tenure': [1, 24, 12, 12, 1, 32, 50, 2, 45, 10],
+    'MonthlyCharges': [29.85, 56.95, 53.85, 42.30, 70.70, 99.65, 89.10, 29.75, 104.80, 56.15],
+    'Contract': ['Month-to-month', 'One year', 'Month-to-month', 'Month-to-month', 'Month-to-month', 
+                 'One year', 'Two year', 'Month-to-month', 'Two year', 'Month-to-month'],
+    'Churn': ['No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'Yes', 'No']
+}
+df = pd.DataFrame(data)
+
+# 2. DATA EXPLORATION & CLEANING
+print("--- Data Summary ---")
+print(df.describe())
+
+# Handling Categorical Data (Encoding)
+le = LabelEncoder()
+df['Contract'] = le.fit_transform(df['Contract'])
+df['Churn'] = le.fit_transform(df['Churn']) # 1 for Yes, 0 for No
+
+# 3. PREPROCESSING
+X = df[['Tenure', 'MonthlyCharges', 'Contract']]
+y = df['Churn']
+
+# Splitting data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Feature Scaling (Crucial for KNN performance)
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# 4. KNN MODELING
+knn = KNeighborsClassifier(n_neighbors=3)
+knn.fit(X_train, y_train)
+
+# 5. PREDICTION & EVALUATION
+y_pred = knn.predict(X_test)
+
+print("\n--- Model Evaluation ---")
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))
+Output
+--- Data Summary ---
+          Tenure  MonthlyCharges
+count  10.000000       10.000000
+mean   18.900000       63.310000
+std    18.095119       27.142062
+min     1.000000       29.750000
+25%     4.000000       45.187500
+50%    12.000000       56.550000
+75%    30.000000       84.500000
+max    50.000000      104.800000
+
+--- Model Evaluation ---
+[[1 0]
+ [1 0]]
+              precision    recall  f1-score   support
+
+           0       0.50      1.00      0.67         1
+           1       0.00      0.00      0.00         1
+
+    accuracy                           0.50         2
+   macro avg       0.25      0.50      0.33         2
+weighted avg       0.25      0.50      0.33         2
+
+
