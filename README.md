@@ -1,27 +1,6 @@
-# MasterCard Credit Card Feature Analysis & Management System
-
-## 📌 Project Overview
-This project is a data-driven application designed to simulate, analyze, and manage MasterCard credit card features. It focuses on processing transaction data, validating user credit limits, tracking spending behavior, and implementing predictive analytics to identify potential patterns. The system provides a comprehensive look into how modern credit card features operate on the backend, ensuring efficient data handling and user profile management.
-
-## 🚀 Key Features
-* **Transaction Management:** Seamless tracking, logging, and categorization of user credit card transactions.
-* **Spending Pattern Analytics:** Visual and data-driven insights into consumer spending habits to help optimize financial tracking.
-* **Credit Limit Validation:** Algorithms designed to check transaction feasibility against dynamic user credit constraints.
-* **Security & Checking Simulators:** Simulated verification checks to maintain transaction integrity and mock fraud detection protocols.
-
-## 🛠️ Tech Stack
-* **Language:** Python / Java (Keep the one you used)
-* **Data Analysis & Processing:** Pandas, NumPy
-* **Data Visualization:** Matplotlib, Seaborn
-* **Environment:** Jupyter Notebook / VS Code
-
-## 📂 Repository Structure
-* `/data` - Contains the mock transaction datasets used for simulation.
-* `/notebooks` - Exploratory Data Analysis (EDA) and experimental code.
-* `/src` - Core source code files for the transaction engine and features.
-* `README.md` - Documentation of the project.
-
-## ⚙️ How to Run the Project
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/Kadir2556/credit-card.git](https://github.com/Kadir2556/credit-card.git)
+Project OverviewThe task requires a comprehensive end-to-end data science solution, including:Predictive Modeling: Developing a system to forecast churn.Documentation: Providing a detailed explanation of the modeling approach and data processing steps.
+Business Intelligence: Extracting key insights and creating a brief report on how the solution improves customer retention strategies.Submission RequirementsThe project focuses heavily on the technical execution using Python.
+Requirements include:
+Codebase: A well-documented Python codebase submitted via GitHub or a ZIP file.Data Pipeline: Clear evidence of professional data handling, specifically:Preprocessing & Cleaning: Handling missing values or outliers.
+Feature Engineering: Creating meaningful variables from raw data.Target Variable 
+Creation: Properly defining and labeling "churn."Key ObjectivesThe ultimate purpose of this project is to help a business proactively reduce churn. By identifying "at-risk" customers before they leave, a company can implement targeted interventions to keep them.
